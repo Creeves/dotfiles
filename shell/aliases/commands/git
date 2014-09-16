@@ -32,6 +32,8 @@ alias gcmac="git commit --verbose --amend --no-edit"
 alias    gd="git diff"
 alias   gds="git diff --cached"
 alias   gdt="git difftool"
+alias    gh="git stash"
+alias   ghp="git stash pop"
 alias   gin="git init"
 alias    gf="git fetch --progress --verbose"
 alias   gla="git log --no-merges                        --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad] %C(cyan)%ae %C(reset)%s %C(white)%d'"
@@ -49,12 +51,17 @@ alias glosa="git log --branches --not --remotes --stat  --date=iso --pretty=form
 alias gloda="git log --branches --not --remotes --patch --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad] %C(cyan)%ae %C(reset)%s %C(white)%d'"
 alias gloga="git log --branches --not --remotes --graph --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad] %C(cyan)%ae %C(reset)%s %C(white)%d'"
 alias    gm="git merge --no-ff --progress --verbose"
+alias   gma="git merge --abort"
+alias   gmd="git merge --no-ff --progress --verbose develop"
 alias   gmu="git merge --no-ff --progress --verbose @{upstream}"
 alias   gps="git push          --progress --verbose"
 alias  gpsf="git push          --progress --verbose --force"
 alias  gpsd="git push          --progress --verbose --delete"
 alias   gpl="git pull          --progress --verbose"
-alias   grb="git rebase --interactive"
+alias  gplf="git pull          --progress --verbose --force"
+alias   grb="git rebase"
+alias  grba="git rebase --abort"
+alias  grbi="git rebase --interactive"
 alias  grbc="git rebase --continue"
 alias  grfa="git reflog         --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d'"
 alias grfsa="git reflog --stat  --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
@@ -70,11 +77,13 @@ alias  grmc="git rm --cached"
 alias grmca="git rm --cached -r ."
 alias   gsm="git submodule"
 alias  gsma="git submodule add"
+alias  gsmc="git submodule foreach --recursive git checkout ."
 alias  gsmu="git submodule update --recursive --init"
 alias   gsh="git show --no-merges        --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
 alias  gshs="git show --no-merges --stat --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
 alias   gst="git status --untracked-files=all"
 alias  gsti="git status --untracked-files=all --ignored"
+alias    gv="git --version"
 
 # Here we just define a few shortcuts to modify the author of a commit. This can
 # be used when you forget to setup the local author details
@@ -90,6 +99,12 @@ alias   gmo="git status --porcelain | cut -c 4-"
 
 # List ignored files
 alias   gig="git ls-files --ignored --exclude-standard"
+
+# Updates the indexed `stat` of a file. It does not modify the file though
+# normally this means that you will have to check out the file after updating
+# the index. Git only respects files of `stat` 644 or 755. Yea it's weird...
+alias  g644="git update-index --chmod=-x"
+alias  g755="git update-index --chmod=+x"
 
 # Logging shortcuts
 alias    gl="gla   -10"

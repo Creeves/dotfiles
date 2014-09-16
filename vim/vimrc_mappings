@@ -46,6 +46,10 @@ vnoremap <Down>  <C-e>
 vnoremap <Up>    <C-y>
 vnoremap <Right> zL
 
+" Navigate through tags
+nnoremap <leader>m :tn<CR>
+nnoremap <leader>n :tp<CR>
+
 " Here we create tab indentation
 nnoremap <Tab>   >>llll
 nnoremap <S-Tab> <<hhhh
@@ -56,16 +60,15 @@ vnoremap <S-Tab> <gv
 
 " Easy v-splitting
 nnoremap <leader>v :vsplit<CR>
-nnoremap <leader>V <C-w>q<ctr>
-nnoremap <leader>1 :vertical resize -20<CR>
-nnoremap <leader>1 :vertical resize -20<CR>
-nnoremap <leader>2 :vertical resize -5<CR>
+nnoremap <leader>V <C-w>q<CR>
+nnoremap <leader>1 :vertical resize +20<CR>
+nnoremap <leader>2 :vertical resize +5<CR>
 nnoremap <leader>3 <C-w>=<CR>
-nnoremap <leader>4 :vertical resize +5<CR>
-nnoremap <leader>5 :vertical resize +20<CR>
+nnoremap <leader>4 :vertical resize -5<CR>
+nnoremap <leader>5 :vertical resize -20<CR>
 
 " Basic tab operation
-nnoremap <leader>t :tabnew<CR>
+" nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>x :tabclose<CR>
 nnoremap <leader>X :tabclose!<CR>
 nnoremap <leader>z :tabonly<CR>
@@ -108,6 +111,13 @@ nnoremap <leader>s :set list!<CR>
 " Bind a key to hide and show the nerdtree page
 nnoremap <leader>b :NERDTreeTabsToggle<CR>
 
+" Run our gulp tasks
+nnoremap <leader>l :w<cr>:!clear && gulp lint<CR>
+nnoremap <leader>t :w<cr>:!clear && gulp test<CR>
+
+" Open the tags in CtrlP
+nnoremap <leader>r :CtrlPTag<CR>
+
 " Quickly open the `TODO.md` file
 nnoremap <leader>T :edit TODO.md<CR>
 
@@ -116,9 +126,9 @@ map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
-map  <Leader>h <Plug>(easymotion-linebackward)
-map  <Leader>j <Plug>(easymotion-j)
-map  <Leader>k <Plug>(easymotion-k)
-map  <Leader>l <Plug>(easymotion-lineforward)
+" map  <Leader>h <Plug>(easymotion-linebackward)
+" map  <Leader>j <Plug>(easymotion-j)
+" map  <Leader>k <Plug>(easymotion-k)
+" map  <Leader>l <Plug>(easymotion-lineforward)
 
 map <Leader>g <Plug>IndentGuidesToggle
