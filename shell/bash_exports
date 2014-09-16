@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Set the global editor as vim
-export EDITOR='vim'
-export VISUAL='vim'
+export EDITOR='subl'
+export VISUAL='subl'
 
 # Don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
